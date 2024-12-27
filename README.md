@@ -3,32 +3,36 @@ Project Dash: Sonic Sprite Fighter (PC first then Port to Vita via VitaSDK)
 DBFZ Inspired Fighting Game with Sprite of GameBoy Advance Sonic Characters 
 with sprites from the following games
 Base: Sonic Battle and Sonic Advance 1,2,3
-(Future - Episode BlackDoomX: Megaman X Series, Megaman Series, Sonic 1,2,3,CD)
+(Future - Episode BlackDoomX: Megaman X Series, Megaman Series, Megaman Zero Series, Sonic 1,2,3,CD and Final Fantasy Sonic)
 
-Github Repository:
+Github Repository Breakdown
 src/
-├── core/
-│   ├── Game.cpp          // Main game loop
-│   ├── GameStateManager.cpp // Manages game states
-│   ├── InputManager.cpp  // Handles input processing
-│   ├── ResourceManager.cpp // Manages textures, sounds, etc.
-│   └── State.cpp         // Base class for game states
-├── states/
-│   ├── MainMenuState.cpp // Handles main menu logic
-│   ├── GameplayState.cpp // Handles gameplay logic
-│   └── PauseState.cpp    // Handles pause menu logic
-├── entities/
-│   ├── Character.cpp     // Base class for characters
-│   ├── Sonic.cpp         // Sonic-specific logic
-│   ├── Shadow.cpp        // Shadow-specific logic
-│   └── Emerl.cpp         // Emerl-specific logic
-├── components/
-│   ├── PhysicsComponent.cpp // Handles physics
-│   ├── GraphicsComponent.cpp // Handles rendering
-│   └── InputComponent.cpp   // Handles entity-specific input
-└── utils/
-    ├── Logger.cpp        // Handles logging
-    └── MathUtils.cpp     // Utility functions for math
+core/
+Game.cpp          // Main game loop
+GameStateManager.cpp // Manages game states
+InputManager.cpp  // Handles input processing
+ResourceManager.cpp // Manages textures, sounds, etc.
+State.cpp         // Base class for game states
+
+states/
+MainMenuState.cpp // Handles main menu logic
+GameplayState.cpp // Handles gameplay logic
+PauseState.cpp    // Handles pause menu logic
+
+entities/
+Character.cpp     // Base class for characters
+Sonic.cpp         // Sonic-specific logic
+Shadow.cpp        // Shadow-specific logic
+Emerl.cpp         // Emerl-specific logic
+
+components/
+PhysicsComponent.cpp // Handles physics
+GraphicsComponent.cpp // Handles rendering
+InputComponent.cpp   // Handles entity-specific input
+
+utils/
+Logger.cpp        // Handles logging
+MathUtils.cpp     // Utility functions for math
 
 Vertical Slice
 1) Gather Libraries and Set up MSVS Project:
