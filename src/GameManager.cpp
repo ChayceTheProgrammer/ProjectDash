@@ -1,88 +1,73 @@
-#include "include/GameManager.h"
+#include "../include/GameManager.h"
 
-class Game {
-public:
-	Game(): window(sf::VideoMode(640, 480), "Project Dash!", sf::Style::Default) {
-		////USE AS REFERENCE FOR WINDOW SETTINGS and Quick Tests
-		//eventually the game will be loaded into Training Mode
+void GameManager::Game() {
+    //create window and set position
+    window.create(sf::VideoMode(640, 480), "Project Dash!", sf::Style::Default);
+    window.setPosition(sf::Vector2i(10, 50));
 
+    //Initialize Keyboard Input
+    KeyboardInput* keyboardInput = new KeyboardInput();
 
-		// Set window position
-		window.setPosition(sf::Vector2i(10, 50));
+    // Load textures
+    if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
+        throw std::runtime_error("Failed to load shadow texture!");
+    }
 
-		//Initialize Keyboard Input
-		KeyboardInput keyboardInput;
-		
-		window.setPosition(sf::Vector2i(10, 50));
+    // Set up the sprite
+    sprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
+}
 
-		// Load textures
-		if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
-			throw std::runtime_error("Failed to load shadow texture!");
-		}
+void GameManager::run() {
+    while (window.isOpen()) {
+        processEvents();
+        update();
+        render();
+    }
+}
 
-		// Set up the sprite
-		sprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
+void GameManager::processEvents() {
+    sf::Event event;
+    while (window.pollEvent(event)) {
+        switch (event.type) {
+        case sf::Event::Closed:
+            window.close();
+            break;
 
-		
-	}
+        case sf::Event::TextEntered:
+            if (event.text.unicode < 128) {
+                std::cout << "ASCII character typed: " << static_cast<char>(event.text.unicode) << std::endl;
+            }
+            break;
 
-	void run() {
-		while (window.isOpen()) {
-			processEvents();
-			update();
-			render();
-		}
-	}
+        case sf::Event::MouseButtonPressed:
+            if (event.mouseButton.button == sf::Mouse::Left) {
+                std::cout << "Left mouse button pressed." << std::endl;
+            }
+            else if (event.mouseButton.button == sf::Mouse::Right) {
+                std::cout << "Right mouse button pressed." << std::endl;
+            }
+            break;
 
-private:
-	sf::RenderWindow window;
-	sf::Sprite sprite;
+        case sf::Event::GainedFocus:
+            std::cout << "Gained Window Focus" << std::endl;
+            break;
 
-	void processEvents() {
-		sf::Event event;
-		while (window.pollEvent(event)) {
-			switch (event.type) {
-			case sf::Event::Closed:
-				window.close();
-				break;
+        case sf::Event::LostFocus:
+            std::cout << "Lost Window Focus" << std::endl;
+            break;
 
-			case sf::Event::TextEntered:
-				if (event.text.unicode < 128) {
-					std::cout << "ASCII character typed: " << static_cast<char>(event.text.unicode) << std::endl;
-				}
-				break;
+        default:
+            break;
+        }
+    }
+}
 
-			case sf::Event::MouseButtonPressed:
-				if (event.mouseButton.button == sf::Mouse::Left) {
-					std::cout << "Left mouse button pressed." << std::endl;
-				}
-				else if (event.mouseButton.button == sf::Mouse::Right) {
-					std::cout << "Right mouse button pressed." << std::endl;
-				}
-				break;
+void GameManager::update() {
+    // Add game logic updates here (e.g., sprite movement, collision detection)
+}
 
-			case sf::Event::GainedFocus:
-				std::cout << "Gained Window Focus" << std::endl;
-				break;
-
-			case sf::Event::LostFocus:
-				std::cout << "Lost Window Focus" << std::endl;
-				break;
-
-			default:
-				break;
-			}
-		}
-	}
-
-	void update() {
-		// Add game logic updates here (e.g., sprite movement, collision detection)
-	}
-
-	void render() {
-		window.clear();
-		window.draw(sprite);
-		window.display();
-	}
-};
-
+void GameManager::render() {
+    window.clear();
+    window.draw(sprite);
+    window.display();
+}

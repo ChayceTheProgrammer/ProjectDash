@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <string>
+#include <iostream>
+#include <memory>
 
 class ResourceManager {
 public:

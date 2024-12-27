@@ -1,9 +1,8 @@
 #ifndef FIGHTSTICKINPUT_H
 #define FIGHTSTICKINPUT_H
 
-#include "IInputDevice.h"
+#include "../include/IInputDevice.h"
 #include <SFML/Window/Joystick.hpp>
-#include <SFML/System/Vector2.hpp>
 
 class FightstickInput : public IInputDevice {
 public:

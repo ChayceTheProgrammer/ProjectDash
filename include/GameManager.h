@@ -12,11 +12,10 @@
 #include "KeyboardInput.h"
 #include "PlayerController.h"
 #include "FightstickInput.h"
-#include "InputBuffer.h"
 
-class Game {
+class GameManager {
 public:
-    Game();
+    void Game();
     void run();
 
 private:

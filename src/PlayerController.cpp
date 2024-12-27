@@ -1,7 +1,7 @@
 #include<iostream>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
-#include "IInputDevice.h"
+#include "../include/PlayerController.h"
 
 /*
 // Create a fightstick input device for joystick 0

@@ -8,3 +8,4 @@ ProjectDash.vcxproj.user
 ProjectDash/
 Release/ProjectDash.exe
 Release/ProjectDash.pdb
+CppProperties.json
