@@ -1,0 +1,10 @@
+
+/.vs
+/Debug
+ProjectDash.sln
+ProjectDash.vcxproj
+ProjectDash.vcxproj.filters
+ProjectDash.vcxproj.user
+ProjectDash/
+Release/ProjectDash.exe
+Release/ProjectDash.pdb
