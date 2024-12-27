@@ -1,11 +1,23 @@
-// FightstickInput.cpp
 #include "IInputDevice.h"
-#include <SFML/Window/Joystick.hpp>
-#include <SFML/System/Vector2.hpp>
+
+#include "FightstickInput.h"
 
 class FightstickInput : public IInputDevice {
 public:
     FightstickInput(unsigned int joystickId) : joystickId(joystickId) {}
+
+    void FightstickInput::update()
+	{
+		(sf::Joystick::isConnected(joystickId)) {
+		// Update the joystick
+		sf::Joystick::update();
+	}
+    }
+
+    bool FightstickInput::isButtonPressed(int button) const
+    {
+        return false;
+    }
 
     // Get the movement direction from the fightstick
     sf::Vector2f getMovementDirection() const override {
@@ -31,5 +43,5 @@ public:
     }
 
 private:
-    unsigned int joystickId; // The ID of the joystick (0-7)
+    unsigned int joystickId; // The ID of the joystick (1-9)
 };

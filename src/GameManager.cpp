@@ -1,15 +1,4 @@
-#include<iostream>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/OpenGL.hpp>
-#include "ResourceManager.cpp"
-#include "KeyboardInput.cpp" 
-#include "PlayerController.cpp" 
-#include "FightstickInput.cpp"
-#include "InputBuffer.cpp"
+#include "include/GameManager.h"
 
 class Game {
 public:
@@ -24,26 +13,15 @@ public:
 		//Initialize Keyboard Input
 		KeyboardInput keyboardInput;
 		
+		window.setPosition(sf::Vector2i(10, 50));
 
 		// Load textures
 		if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
-			std::cerr << "Failed to load shadow texture!" << std::endl;
-			exit(EXIT_FAILURE);
+			throw std::runtime_error("Failed to load shadow texture!");
 		}
 
 		// Set up the sprite
 		sprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
-
-		//create player sprite
-		sf::Sprite playerSprite = sprite;
-		if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
-			std::cerr << "Failed to load player texture!" << std::endl;
-			exit(EXIT_FAILURE);
-		}
-		playerSprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
-
-		sf::Clock clock; // For delta time calculation
-		PlayerController playerController(playerSprite, &keyboardInput);
 
 		
 	}
@@ -107,3 +85,4 @@ private:
 		window.display();
 	}
 };
+

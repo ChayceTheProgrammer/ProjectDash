@@ -1,18 +1,6 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <queue>
-#include <unordered_map>
-#include <functional>
-#include <iostream>
+#include "InputBuffer.h"
 
-// Define a structure to represent an input event
-struct InputEvent {
-    sf::Keyboard::Key key; // The key pressed
-    int frame;             // The frame at which the input was registered
-};
-
-// InputBuffer class
-class InputBuffer {
+class InputBuffer { //implements a buffer for input events
 private:
     std::queue<InputEvent> buffer; // Queue to store input events
     int bufferWindow;              // Number of frames to keep inputs in the buffer

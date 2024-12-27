@@ -1,4 +1,5 @@
 #include "InputBuffer.cpp"
+#include "include/InputManager.h"
 
 class InputManager {
 private:
