@@ -1,12 +1,11 @@
 #include "../include/GameManager.h"
+#include "InputBuffer.cpp"
+
 
 void GameManager::Game() {
     //create window and set position
     window.create(sf::VideoMode(640, 480), "Project Dash!", sf::Style::Default);
     window.setPosition(sf::Vector2i(10, 50));
-
-    //Initialize Keyboard Input
-    KeyboardInput* keyboardInput = new KeyboardInput();
 
     // Load textures
     if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
@@ -15,6 +14,7 @@ void GameManager::Game() {
 
     // Set up the sprite
     sprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
+
 }
 
 void GameManager::run() {

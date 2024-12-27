@@ -2,17 +2,17 @@
 #define PLAYERCONTROLLER_H
 
 #include <SFML/Graphics.hpp>
-#include "IInputDevice.h"
 
 class PlayerController {
 public:
-    PlayerController(sf::Sprite& playerSprite, IInputDevice* inputDevice);
+    PlayerController(sf::Sprite& playerSprite);
+    void handleJump();
     void update(float deltaTime);
-    void setInputDevice(IInputDevice* newInputDevice);
+    bool isJumping();
 
 private:
     sf::Sprite& sprite;
-    IInputDevice* inputDevice;
+
     float speed;
 };
 

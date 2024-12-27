@@ -1,6 +1,7 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
+#include <vector>
 #include "InputBuffer.h"
 #include <SFML/Window.hpp>
 

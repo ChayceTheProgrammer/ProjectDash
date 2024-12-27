@@ -11,7 +11,7 @@
 #include "ResourceManager.h"
 #include "KeyboardInput.h"
 #include "PlayerController.h"
-#include "FightstickInput.h"
+#include "InputManager.h"
 
 class GameManager {
 public:

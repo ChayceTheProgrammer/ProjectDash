@@ -1,5 +1,4 @@
-#include <iostream>
-#include "include/GameManager.h" 
+#include "src/GameManager.cpp" 
 
 int main() {
     try {

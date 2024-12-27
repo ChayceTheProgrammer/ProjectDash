@@ -5,6 +5,7 @@
 #include <queue>
 #include <unordered_map>
 #include <functional>
+#include <iostream>
 
 struct InputEvent {
     sf::Keyboard::Key key;
