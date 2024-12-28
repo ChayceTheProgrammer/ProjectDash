@@ -3,7 +3,6 @@
 int main() {
     try {
         GameManager TheGame;
-	
         TheGame.run();
 	}
 	catch (const std::exception& e) {
