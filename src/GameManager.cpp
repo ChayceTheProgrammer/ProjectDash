@@ -1,20 +1,12 @@
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "../include/PlayerController.h"
 #include "../include/GameManager.h"
-#include "InputBuffer.cpp"
+#include "../include/ResourceManager.h"
+#include "KeyboardInput.cpp"
 
-
-void GameManager::Game() {
-    //create window and set position
-    window.create(sf::VideoMode(640, 480), "Project Dash!", sf::Style::Default);
-    window.setPosition(sf::Vector2i(10, 50));
-
-    // Load textures
-    if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
-        throw std::runtime_error("Failed to load shadow texture!");
-    }
-
-    // Set up the sprite
-    sprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
-
+GameManager::GameManager() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default) {
+    initialize();
 }
 
 void GameManager::run() {
@@ -25,49 +17,46 @@ void GameManager::run() {
     }
 }
 
+void GameManager::initialize() {
+    // Set window position
+    window.setPosition(sf::Vector2i(10, 50));
+
+    // Load textures
+    if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
+        throw std::runtime_error("Failed to load shadow texture!");
+    }
+
+    // Set up the player sprite
+    playerSprite.setTexture(ResourceManager::getInstance().getTexture("shadow"));
+
+    // Initialize player controller with keyboard input
+    auto keyboardInput = std::make_unique<KeyboardInput>();
+    playerController = std::make_unique<PlayerController>(playerSprite, std::move(keyboardInput));
+}
+
 void GameManager::processEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
-        switch (event.type) {
-        case sf::Event::Closed:
+        // Handle window close event
+        if (event.type == sf::Event::Closed) {
             window.close();
-            break;
-
-        case sf::Event::TextEntered:
-            if (event.text.unicode < 128) {
-                std::cout << "ASCII character typed: " << static_cast<char>(event.text.unicode) << std::endl;
-            }
-            break;
-
-        case sf::Event::MouseButtonPressed:
-            if (event.mouseButton.button == sf::Mouse::Left) {
-                std::cout << "Left mouse button pressed." << std::endl;
-            }
-            else if (event.mouseButton.button == sf::Mouse::Right) {
-                std::cout << "Right mouse button pressed." << std::endl;
-            }
-            break;
-
-        case sf::Event::GainedFocus:
-            std::cout << "Gained Window Focus" << std::endl;
-            break;
-
-        case sf::Event::LostFocus:
-            std::cout << "Lost Window Focus" << std::endl;
-            break;
-
-        default:
-            break;
         }
+        // Handle other events (e.g., resizing, input)
     }
 }
 
 void GameManager::update() {
-    // Add game logic updates here (e.g., sprite movement, collision detection)
+    float deltaTime = clock.restart().asSeconds();
+
+    // Cap deltaTime to prevent issues when debugging or if the game lags
+    if (deltaTime > 0.1f)
+        deltaTime = 0.1f;
+
+    playerController->update(deltaTime);
 }
 
 void GameManager::render() {
     window.clear();
-    window.draw(sprite);
+    window.draw(playerSprite);
     window.display();
 }

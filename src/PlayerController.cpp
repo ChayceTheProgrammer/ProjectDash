@@ -1,27 +1,24 @@
-#include <iostream>
-#include <SFML/Graphics/Sprite.hpp>
 #include "../include/PlayerController.h"
 
-PlayerController::PlayerController(sf::Sprite& playerSprite) 
-    : sprite(playerSprite), speed(200.f) {};
-
-void PlayerController::handleJump() {
-    // Placeholder for jump logic
-    std::cout << "Player is jumping!" << std::endl;
-};
+PlayerController::PlayerController(sf::Sprite& playerSprite, std::unique_ptr<IInputDevice> inputDevice)
+    : sprite(playerSprite),
+    inputDevice(std::move(inputDevice)),
+    speed(200.f),
+    health(100.f)
+{
+}
 
 void PlayerController::update(float deltaTime) {
-    // Get movement direction from the input device
-    sf::Vector2f direction;
+    if (!inputDevice)
+        return;
 
-    // Scale movement by speed and deltaTime
+    sf::Vector2f direction = inputDevice->getMovementDirection();
     sprite.move(direction * speed * deltaTime);
-};
 
-bool PlayerController::isJumping() {
-    // Placeholder for jump logic
-    // if(player.x >= 0){
-    //     return true;
-    // }
-    return false;
-};
+}
+
+void PlayerController::setInputDevice(std::unique_ptr<IInputDevice> newInputDevice) {
+    inputDevice = std::move(newInputDevice);
+}
+
+// Implement other methods similarly...

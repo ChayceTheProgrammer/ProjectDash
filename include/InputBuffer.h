@@ -5,7 +5,6 @@
 #include <queue>
 #include <unordered_map>
 #include <functional>
-#include <iostream>
 
 struct InputEvent {
     sf::Keyboard::Key key;
@@ -14,7 +13,7 @@ struct InputEvent {
 
 class InputBuffer {
 public:
-    explicit InputBuffer(int bufferWindowSize) : bufferWindow(bufferWindowSize), currentFrame(0) {}
+    explicit InputBuffer(int bufferWindowSize);
     void addInput(sf::Keyboard::Key key);
     void processInputs(const std::unordered_map<sf::Keyboard::Key, std::function<void()>>& actions);
     void nextFrame();

@@ -2,24 +2,34 @@
 #define RESOURCEMANAGER_H
 
 #include <SFML/Graphics.hpp>
-#include <map>
+#include <unordered_map>
+#include <memory>
 #include <string>
 #include <iostream>
-#include <memory>
 
 class ResourceManager {
 public:
-    static ResourceManager& getInstance();
-    bool loadTexture(const std::string& name, const std::string& filename);
-    sf::Texture& getTexture(const std::string& name);
-	void deleteTexture(const std::string& name);
+    // Singleton pattern to ensure only one instance exists
+    static ResourceManager& getInstance() {
+        static ResourceManager instance;
+        return instance;
+    }
+
+    // Load a texture and store it with a string identifier
+    bool loadTexture(const std::string& id, const std::string& filepath);
+
+    // Get a loaded texture by its string identifier
+    sf::Texture& getTexture(const std::string& id);
+
+    // Delete a texture by its string identifier
+    void deleteTexture(const std::string& id);
 
 private:
-	ResourceManager() = default;                                        //Private constructor
-	ResourceManager(const ResourceManager&) = delete;   	            //Prevent copying    
-	ResourceManager& operator=(const ResourceManager&) = delete;		//Prevent assignment
-	std::map < std::string, std::shared_ptr<sf::Texture> > textures;	//Map to store textures
-	
+    ResourceManager() = default;  // Private constructor
+    ResourceManager(const ResourceManager&) = delete;             // Prevent copying
+    ResourceManager& operator=(const ResourceManager&) = delete;  // Prevent assignment
+
+    std::unordered_map<std::string, std::shared_ptr<sf::Texture>> textures;
 };
 
 #endif // RESOURCEMANAGER_H
