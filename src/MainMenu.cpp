@@ -1,7 +1,8 @@
 #include "../include/MainMenu.h"
+#include "../include/GameManager.h"
 
-MainMenu::MainMenu()
-{
+MainMenu::MainMenu() : selectedOption(0) {
+	// Initialize menu text and options
 }
 
 MainMenu::~MainMenu()
@@ -10,45 +11,37 @@ MainMenu::~MainMenu()
 
 void MainMenu::enter()
 {
-	std::cout << "Entering Main Menu" << std::endl;
-
 }
 
-void MainMenu::update(float deltaTime)
-{
-	while (true)
-	{
-		std::cout << "Main Menu Options" << std::endl;
-		std::cout << "1. Menu" << std::endl;
-		std::cout << "2. Options" << std::endl;
-		std::cout << "9. Exit" << std::endl;
-		
-		int choice = -1;
-		std::cin >> choice;
-		switch (choice) {
-		case 1:
-			std::cout << "Menu" << std::endl;
-			currentState = mainMenuState;
+void MainMenu::update(float deltaTime) {
+	// Handle keyboard input for menu navigation
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		selectedOption = (selectedOption - 1 + 3) % 3;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		selectedOption = (selectedOption + 1) % 3;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+		switch (selectedOption) {
+		case 0: // Start Game
+			// gameManager->setState(gameplayState);
 			break;
-		case 2:
-			std::cout << "Options" << std::endl;
-			currentState = optionsState;
+		case 1: // Options
+			gameManager->setState(optionsState);
 			break;
-		case 9:
-			std::cout << "Exiting" << std::endl;
-			exit(0);
-			break;
-
-		default:
-			std::cout << "Invalid choice" << std::endl;
+		case 2: // Exit
+			gameManager->getWindow().close();
 			break;
 		}
-
 	}
+}
+
+void MainMenu::render(sf::RenderWindow& window) {
+	// Render menu options
+	// Use SFML text rendering instead of cout
 	
 }
 
 void MainMenu::leave()
 {
-	std::cout << "Leaving Main Menu" << std::endl;
 }

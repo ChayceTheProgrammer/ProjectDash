@@ -6,11 +6,18 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "PlayerController.h"
+#include "State.h"
+#include "MainMenu.h"
+#include "Options.h"
+#include "ResourceManager.h"
+#include "../src/KeyboardInput.cpp"
 
 class GameManager {
 public:
 	GameManager();
 	void run();
+	void setState(State* newState);
+	sf::RenderWindow& getWindow() { return window; }
 
 private:
 	
@@ -21,6 +28,9 @@ private:
 	sf::Sprite playerSprite;
 	sf::Clock clock; // For delta time calculation
 	std::unique_ptr<PlayerController> playerController;
+
+	State* currentState;
+	bool isGameRunning;
 
 	void initialize();
 	void processEvents();

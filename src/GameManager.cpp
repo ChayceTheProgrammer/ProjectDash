@@ -1,29 +1,44 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../include/PlayerController.h"
 #include "../include/GameManager.h"
-#include "../include/ResourceManager.h"
-#include "KeyboardInput.cpp"
-#include "../include/MainMenu.h"
-#include "../include/Options.h"
 
-//States
-State* State::mainMenuState = new MainMenu();
-State* State::optionsState = new Options();
-State* State::currentState = State::mainMenuState;
-
-GameManager::GameManager() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default) {
+GameManager::GameManager() :
+    window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default), 
+    isGameRunning(true) 
+{
     initialize();
+    currentState = State::mainMenuState;
+    currentState->enter();
+}
+
+void GameManager::setState(State* newState) {
+    if (currentState) {
+        currentState->leave();
+    }
+    currentState = newState;
+    if (currentState) {
+        currentState->enter();
+    }
 }
 
 void GameManager::run() {
-    while (window.isOpen()) {
+    while (window.isOpen() && isGameRunning) {
         processEvents();
         update();
         render();
-        State::currentState->enter();
-		
+    }
+}
 
+void GameManager::update() {
+    float deltaTime = clock.restart().asSeconds();
+    if (deltaTime > 0.1f) { deltaTime = 0.1f; }
+
+    if (currentState) {
+        currentState->update(deltaTime);
+    }
+
+    // Only update player when in gameplay state
+    // You'll need to add a gameplay state and check for it
+    if (currentState /* is gameplay state */) {
+        playerController->update(deltaTime);
     }
 }
 
@@ -55,19 +70,17 @@ void GameManager::processEvents() {
     }
 }
 
-void GameManager::update() {
-    float deltaTime = clock.restart().asSeconds();
-
-    // Cap deltaTime to prevent issues when debugging or if the game lags
-    if (deltaTime > 0.1f)
-        deltaTime = 0.1f;
-
-    playerController->update(deltaTime);
-    State::currentState->update(deltaTime);
-}
-
 void GameManager::render() {
     window.clear();
-    window.draw(playerSprite);
+
+    if (currentState) {
+        currentState->render(window);
+    }
+
+    // Only render player when in gameplay state
+    if (currentState /* is gameplay state */) {
+        window.draw(playerSprite);
+    }
+
     window.display();
 }
