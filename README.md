@@ -123,23 +123,27 @@ Local MP Setup
 
 -------Credits---------
 Sprites:
--Sega
-
-Lead Programmer(s)
--Myself (Chayce Leonard)
-
-Special Thanks:
-Akira Toriyama
-Lythero
-ZzyX_
-IHeartJustace
-MaxamillianDood
-BlackDevilX (Creator of Final Fantasy Sonic X Flash Series and Aeon the Hedgehog)
-DashieXP
-CoryXKenshin
-Markiplier
+Sega
 Sonic Team
 Capcom
 Marvel
 Newgrounds.com
 
+Sprite Rippers:
+Spriters Resource (repository)
+
+Lead Programmer(s)
+Myself (Chayce Leonard)
+
+Special Thanks:
+Lythero
+ZzyX_
+IHeartJustace
+MaxamillianDood
+DashieXP
+CoryXKenshin
+Markiplier
+
+In Rememberance of
+Akira Toriyama
+BlackDevilX (Creator of Final Fantasy Sonic X Flash Series and Aeon the Hedgehog)

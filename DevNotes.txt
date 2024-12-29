@@ -1,0 +1,25 @@
+Progress:
+
+12/28/24 - Have Sprite Sheets on screen and movement of entire sprite sheet
+w/ arrow keys
+
+Plans:
+-create Animation Class (.h and .cpp)
+-create Animation Manager (.h and .cpp)
+-create Base State Class 
+-create State Machine Implementation
+-split sprite sheet into individual animations for characters
+-credit sprite rippers in readme
+-update readme
+-create physics system
+-create graphics system
+-create entity-specific input systems (powered-up conditions / installs etc)
+-create entity-specific collision systems ()
+-create 'grab' system
+-create hitboxes/hurtboxes
+-start menu system 
+-create game pause state
+-create game over state
+-create game win state
+-create game lose state
+-create game win/lose conditions

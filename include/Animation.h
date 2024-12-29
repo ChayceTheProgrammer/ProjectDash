@@ -1,5 +1,6 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
+
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
