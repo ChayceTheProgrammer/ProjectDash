@@ -9,7 +9,7 @@ MainMenu::~MainMenu()
 {
 }
 
-void MainMenu::enter()
+void MainMenu::enter() 
 {
 }
 
@@ -27,7 +27,7 @@ void MainMenu::update(float deltaTime) {
 			// gameManager->setState(gameplayState);
 			break;
 		case 1: // Options
-			gameManager->setState(optionsState);
+			// gameManager->setState(optionsState);
 			break;
 		case 2: // Exit
 			gameManager->getWindow().close();

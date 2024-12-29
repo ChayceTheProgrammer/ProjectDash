@@ -5,18 +5,8 @@ GameManager::GameManager() :
     isGameRunning(true) 
 {
     initialize();
-    currentState = State::mainMenuState;
+    currentState = new MainMenu();
     currentState->enter();
-}
-
-void GameManager::setState(State* newState) {
-    if (currentState) {
-        currentState->leave();
-    }
-    currentState = newState;
-    if (currentState) {
-        currentState->enter();
-    }
 }
 
 void GameManager::run() {
@@ -27,18 +17,13 @@ void GameManager::run() {
     }
 }
 
-void GameManager::update() {
-    float deltaTime = clock.restart().asSeconds();
-    if (deltaTime > 0.1f) { deltaTime = 0.1f; }
-
+void GameManager::setState(State* newState) {
     if (currentState) {
-        currentState->update(deltaTime);
+        currentState->leave();
     }
-
-    // Only update player when in gameplay state
-    // You'll need to add a gameplay state and check for it
-    if (currentState /* is gameplay state */) {
-        playerController->update(deltaTime);
+    currentState = newState;
+    if (currentState) {
+        currentState->enter();
     }
 }
 
@@ -67,6 +52,21 @@ void GameManager::processEvents() {
             window.close();
         }
         // Handle other events (e.g., resizing, input)
+    }
+}
+
+void GameManager::update() {
+    float deltaTime = clock.restart().asSeconds();
+    if (deltaTime > 0.1f) { deltaTime = 0.1f; }
+
+    if (currentState) {
+        currentState->update(deltaTime);
+    }
+
+    // Only update player when in gameplay state
+    // You'll need to add a gameplay state and check for it
+    if (currentState /* is gameplay state */) {
+        playerController->update(deltaTime);
     }
 }
 

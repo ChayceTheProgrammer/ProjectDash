@@ -1,8 +1,5 @@
 #include "../include/State.h"
 
-// Define static members
-State* State::mainMenuState = nullptr;
-State* State::optionsState = nullptr;
 GameManager* State::gameManager = nullptr;
 
 State::State()

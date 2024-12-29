@@ -5,10 +5,13 @@
 #include <exception>
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "PlayerController.h"
+
+//states
 #include "State.h"
 #include "MainMenu.h"
 #include "Options.h"
+
+#include "PlayerController.h"
 #include "ResourceManager.h"
 #include "../src/KeyboardInput.cpp"
 

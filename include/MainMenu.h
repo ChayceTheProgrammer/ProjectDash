@@ -21,6 +21,5 @@ private:
 	sf::Text menuText;
 	int selectedOption;
 
-
 };
 #endif // MAINMENU_H
