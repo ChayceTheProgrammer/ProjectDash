@@ -36,9 +36,10 @@ void MainMenu::update(float deltaTime)
 			break;
 		case 9:
 			std::cout << "Exiting" << std::endl;
-			exit();
+			exit(0);
 			break;
-		case default:
+
+		default:
 			std::cout << "Invalid choice" << std::endl;
 			break;
 		}
@@ -51,4 +52,3 @@ void MainMenu::leave()
 {
 	std::cout << "Leaving Main Menu" << std::endl;
 }
-

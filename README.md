@@ -7,17 +7,16 @@ Base: Sonic Battle and Sonic Advance 1,2,3
 
 Github Repository Breakdown
 src/
-core/
-Game.cpp          // Main game loop
-GameStateManager.cpp // Manages game states
-InputManager.cpp  // Handles input processing
-ResourceManager.cpp // Manages textures, sounds, etc.
-State.cpp         // Base class for game states
+main.cpp				// Main game loop
+GameStateManager.cpp	// Manages game states
+InputManager.cpp		// Handles input processing
+ResourceManager.cpp		// Manages textures, sounds, etc.
+State.cpp				// Base class for game states
 
-states/
-MainMenuState.cpp // Handles main menu logic
-GameplayState.cpp // Handles gameplay logic
-PauseState.cpp    // Handles pause menu logic
+MainMenu.cpp		// Handles main menu logic
+GameplayState.cpp	// Handles gameplay logic
+PauseState.cpp		// Handles pause menu logic
+Options.cpp			// Handles options menu logic
 
 entities/
 Character.cpp     // Base class for characters
@@ -26,13 +25,16 @@ Shadow.cpp        // Shadow-specific logic
 Emerl.cpp         // Emerl-specific logic
 
 components/
-PhysicsComponent.cpp // Handles physics
-GraphicsComponent.cpp // Handles rendering
-InputComponent.cpp   // Handles entity-specific input
+PhysicsComponent.cpp	// Handles physics
+GraphicsComponent.cpp	// Handles rendering
+InputComponent.cpp		// Handles entity-specific input
 
 utils/
 Logger.cpp        // Handles logging
 MathUtils.cpp     // Utility functions for math
+
+include/
+headers for implementations (.h files...)
 
 Vertical Slice
 1) Gather Libraries and Set up MSVS Project:
@@ -132,7 +134,7 @@ Newgrounds.com
 Sprite Rippers:
 Spriters Resource (repository)
 
-Lead Programmer(s)
+Lead Programmer(s):
 Myself (Chayce Leonard)
 
 Special Thanks:
@@ -144,6 +146,6 @@ DashieXP
 CoryXKenshin
 Markiplier
 
-In Rememberance of
+In Rememberance of:
 Akira Toriyama
 BlackDevilX (Creator of Final Fantasy Sonic X Flash Series and Aeon the Hedgehog)

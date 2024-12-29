@@ -10,9 +10,10 @@ Plans:
 -create State Machine Implementation
 
 -split sprite sheet into individual animations for characters
-
--credit sprite rippers in readme
--update readme
+-create base character class (character.cpp and charcacter.h)
+->Sonic
+->Shadow
+->Emerl...
 
 -create physics system
 -create graphics system
@@ -28,4 +29,7 @@ Plans:
 -create game win state
 -create game lose state
 -create game win/lose conditions
+
+-credit sprite rippers in readme
+-update readme
 

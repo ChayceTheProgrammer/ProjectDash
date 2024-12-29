@@ -1,4 +1,4 @@
-#include "AnimationManager.h"
+#include "../include/AnimationManager.h"
 
 void AnimationManager::addAnimation(const std::string& name, Animation animation)
 {

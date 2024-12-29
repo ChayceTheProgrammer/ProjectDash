@@ -27,8 +27,8 @@ public:
 	//states that will get implemented (via Polymorphism)
 	//pointers to different states
 	static State* currentState;
-	static State* nextState;
-	static State* previousState;
+	//static State* nextState;
+	//static State* previousState;
 	
 	//States to implement into machine
 	static State* mainMenuState;

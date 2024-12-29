@@ -13,7 +13,6 @@ public:
     void update(float deltaTime);
     void setInputDevice(std::unique_ptr<IInputDevice> newInputDevice);
 
-
 private:
     sf::Sprite& sprite;
     std::unique_ptr<IInputDevice> inputDevice;

@@ -4,6 +4,13 @@
 #include "../include/GameManager.h"
 #include "../include/ResourceManager.h"
 #include "KeyboardInput.cpp"
+#include "../include/MainMenu.h"
+#include "../include/Options.h"
+
+//States
+State* State::mainMenuState = new MainMenu();
+State* State::optionsState = new Options();
+State* State::currentState = State::mainMenuState;
 
 GameManager::GameManager() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default) {
     initialize();
@@ -14,6 +21,9 @@ void GameManager::run() {
         processEvents();
         update();
         render();
+        State::currentState->enter();
+		
+
     }
 }
 
@@ -53,6 +63,7 @@ void GameManager::update() {
         deltaTime = 0.1f;
 
     playerController->update(deltaTime);
+    State::currentState->update(deltaTime);
 }
 
 void GameManager::render() {
