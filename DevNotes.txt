@@ -33,3 +33,5 @@ Plans:
 -credit sprite rippers in readme
 -update readme
 
+12/29/24 - Implemented a basic state machine to handle menu and option states
+(very buggy and not fully complete)

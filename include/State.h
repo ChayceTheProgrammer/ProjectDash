@@ -14,8 +14,9 @@ public:
     virtual ~State();
     
     virtual void enter() = 0; //set up variables for current state
-    /* - set up music
-    *  - set up cursor
+    /*
+    - set up music
+    - set up cursor
     - load game settings
     - 
     */
