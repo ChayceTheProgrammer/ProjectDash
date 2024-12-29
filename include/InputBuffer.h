@@ -23,5 +23,4 @@ private:
     int bufferWindow;
     int currentFrame;
 };
-
 #endif // INPUTBUFFER_H

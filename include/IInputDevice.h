@@ -1,4 +1,3 @@
-// IInputDevice.h
 #ifndef IINPUTDEVICE_H
 #define IINPUTDEVICE_H
 

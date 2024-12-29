@@ -3,6 +3,7 @@
 
 #include "IInputDevice.h"
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Joystick.hpp>
 
 class FightstickInput : public IInputDevice {
 public:

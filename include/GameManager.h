@@ -28,5 +28,4 @@ private:
 	void render();
 	
 };
-
 #endif // GAMEMANAGER_H
