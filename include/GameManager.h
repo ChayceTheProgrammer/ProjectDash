@@ -13,7 +13,7 @@
 
 #include "PlayerController.h"
 #include "ResourceManager.h"
-#include "../src/KeyboardInput.cpp"
+#include "KeyboardInput.h"
 
 class GameManager {
 public:

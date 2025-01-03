@@ -11,6 +11,7 @@ MainMenu::~MainMenu()
 
 void MainMenu::enter() 
 {
+	
 }
 
 void MainMenu::update(float deltaTime) {
