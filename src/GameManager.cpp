@@ -1,8 +1,8 @@
 #include "../include/GameManager.h"
 
 GameManager::GameManager() :
-    window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default), 
-    isGameRunning(true) 
+    window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default),
+    isGameRunning(true)
 {
     initialize();
     currentState = new MainMenu();
@@ -32,7 +32,7 @@ void GameManager::initialize() {
     window.setPosition(sf::Vector2i(10, 50));
 
     // Load textures
-    if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow-2.gif")) {
+    if (!ResourceManager::getInstance().loadTexture("shadow", "assets/CharacterSpriteSheets/shadow.png")) {
         throw std::runtime_error("Failed to load shadow texture!");
     }
 
@@ -64,8 +64,7 @@ void GameManager::update() {
     }
 
     // Only update player when in gameplay state
-    // You'll need to add a gameplay state and check for it
-    if (currentState /* is gameplay state */) {
+    if (dynamic_cast<GameplayState*>(currentState)) {
         playerController->update(deltaTime);
     }
 }
@@ -78,9 +77,22 @@ void GameManager::render() {
     }
 
     // Only render player when in gameplay state
-    if (currentState /* is gameplay state */) {
+    if (dynamic_cast<GameplayState*>(currentState)) {
         window.draw(playerSprite);
     }
 
     window.display();
+}
+
+sf::Sprite& GameManager::getPlayerSprite() {
+    return playerSprite;
+}
+
+PlayerController* GameManager::getPlayerController() {
+    return playerController.get();
+}
+
+sf::RenderWindow& GameManager::getWindow()
+{
+    // TODO: insert return statement here
 }
