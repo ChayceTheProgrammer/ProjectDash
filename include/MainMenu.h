@@ -3,13 +3,15 @@
 
 #include "State.h"
 #include <iostream>	
+#include <vector>
+#include <string>
 #include <SFML/Graphics.hpp>
 
-//inherit from base class 'State'
+//inherit from base class "State"
 class MainMenu : public State {
 public:
 	MainMenu();
-	virtual ~MainMenu();
+	~MainMenu();
 
 	//These do NOT need to be virual because they are inheriting the State.h base methods
 	void enter() override;
@@ -18,8 +20,12 @@ public:
 	void leave() override;
 
 private:
-	sf::Text menuText;
-	int selectedOption;
+	sf::Font font;
+	std::vector<std::string> menuOptions;
+	std::vector<sf::Text> menuTexts;
+	size_t selectedOption;
+
+	void updateMenuColors();
 
 };
 #endif // MAINMENU_H

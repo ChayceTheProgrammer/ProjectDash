@@ -1,12 +1,19 @@
 #include "../include/GameManager.h"
 
 GameManager::GameManager() :
-    window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Project Dash!", sf::Style::Default),
-    isGameRunning(true)
-{
+    //
+    window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), 
+    "Project Dash!", 
+    sf::Style::Default),
+    isGameRunning(true) {
     initialize();
     currentState = new MainMenu();
     currentState->enter();
+}
+
+GameManager& GameManager::getInstance() {
+    static GameManager instance;
+    return instance;
 }
 
 void GameManager::run() {
@@ -92,7 +99,4 @@ PlayerController* GameManager::getPlayerController() {
     return playerController.get();
 }
 
-sf::RenderWindow& GameManager::getWindow()
-{
-    // TODO: insert return statement here
-}
+sf::RenderWindow& GameManager::getWindow() { return window; }
