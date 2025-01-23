@@ -5,6 +5,15 @@ with sprites from the following games
 Base: Sonic Battle and Sonic Advance 1,2,3
 (Future - Episode BlackDoomX: Megaman X Series, Megaman Series, Megaman Zero Series, Sonic 1,2,3,CD and Final Fantasy Sonic)
 
+STORY
+After an alternate ending to Sonic 06 where after the timeline is reversed a crack in the multiverse occurs and accross most sprite work characters now are aware of other sprite dimensions.
+Our Speedy Heroes will put the spriterverse back together!
+
+
+
+
+
+
 Github Repository Breakdown
 src/
 main.cpp				// Main game loop
@@ -105,7 +114,7 @@ Phase 2:
 - Basic frame data implementation
 
 Phase 3:
-- Advanced mechanics (air dashing, etc.)
+- Advanced mechanics (air dashing, spindashing/unique moves etc.)
 - Super moves
 - Counter system
 - Advanced cancel options
@@ -132,7 +141,7 @@ Marvel
 Newgrounds.com
 
 Sprite Rippers:
-Spriters Resource (repository)
+Spriters Resource 
 
 Lead Programmer(s):
 Myself (Chayce Leonard)
