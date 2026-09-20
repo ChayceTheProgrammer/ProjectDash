@@ -1,0 +1,53 @@
+# Main Game Settings
+name "Sonic Beat Em Up"
+author "Your Name"
+version "1.0"
+
+# Game Settings
+setgame "name" "Sonic Beat Em Up"
+setgame "author" "Your Name"
+setgame "version" "1.0"
+setgame "maxplayers" 1
+setgame "maxenemies" 10
+setgame "maxobstacles" 20
+setgame "maxspawns" 5
+setgame "maxweapons" 10
+setgame "maxitems" 20
+setgame "maxeffects" 30
+setgame "maxmodels" 10
+setgame "maxanimations" 100
+setgame "maxsprites" 200
+setgame "maxsounds" 50
+setgame "maxmusic" 10
+setgame "maxlevels" 10
+
+# Load Levels
+load "levels/level1.txt"
+
+# Load Characters
+load "chars/sonic/sonic.txt"
+load "chars/enemies/crabmeat.txt"
+
+# Load Power-ups
+load "data/powerups.txt"
+
+# Load Music
+load "music/level1.mp3"
+
+# Load Sounds
+load "sounds/hit.wav"
+load "sounds/jump.wav"
+load "sounds/attack.wav"
+load "sounds/special.wav"
+load "sounds/spindash.wav"
+load "sounds/homing.wav"
+load "sounds/combo.wav"
+load "sounds/ring.wav"
+load "sounds/shield.wav"
+load "sounds/speedshoes.wav"
+load "sounds/invincibility.wav"
+load "sounds/extralife.wav"
+load "sounds/energycapsule.wav"
+
+# Game Start
+startlevel "level1" 

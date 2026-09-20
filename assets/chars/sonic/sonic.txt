@@ -1,0 +1,144 @@
+# Sonic Character Definition
+name "Sonic"
+type "player"
+health 100
+speed 5
+jumpspeed 10
+gravity 0.5
+attackpower 10
+defense 5
+energy 100
+
+# Basic Properties
+setchar "name" "Sonic"
+setchar "type" "player"
+setchar "health" 100
+setchar "speed" 5
+setchar "jumpspeed" 10
+setchar "gravity" 0.5
+setchar "attackpower" 10
+setchar "defense" 5
+setchar "energy" 100
+setchar "energymax" 100
+setchar "energyregen" 1
+
+# Load Sprite Configuration
+load "data/sprite_config.txt"
+
+# Animations
+animation "idle" "sprites/sonic_idle.png" 4 0.2
+animation "walk" "sprites/sonic_walk.png" 6 0.1
+animation "run" "sprites/sonic_run.png" 8 0.05
+animation "jump" "sprites/sonic_jump.png" 4 0.1
+animation "attack" "sprites/sonic_attack.png" 6 0.1
+animation "special" "sprites/sonic_special.png" 8 0.05
+animation "spindash" "sprites/sonic_spindash.png" 6 0.05
+animation "homing" "sprites/sonic_homing.png" 6 0.1
+animation "hurt" "sprites/sonic_hurt.png" 2 0.2
+animation "death" "sprites/sonic_death.png" 4 0.3
+
+# Basic Moves
+move "walk" "walk" 0 0
+move "run" "run" 0 0
+move "jump" "jump" 0 0
+move "attack" "attack" 0 0
+move "hurt" "hurt" 0 0
+move "death" "death" 0 0
+
+# Special Moves
+move "special" "special" 20 0
+move "spindash" "spindash" 15 0
+move "homing" "homing" 25 0
+
+# Combo System
+setchar "combosystem" 1
+setchar "combotime" 1.5
+setchar "combomax" 5
+setchar "combodamage" 1.2
+setchar "comboenergy" 0.8
+
+# Special Move Properties
+setchar "specialtype" "projectile"
+setchar "specialrange" 300
+setchar "specialcooldown" 3
+setchar "specialdamage" 20
+setchar "specialenergy" 20
+setchar "specialknockback" 10
+setchar "specialstun" 1
+
+setchar "spindashtype" "dash"
+setchar "spindashspeed" 15
+setchar "spindashduration" 1
+setchar "spindashdamage" 15
+setchar "spindashenergy" 15
+setchar "spindashknockback" 8
+setchar "spindashstun" 0.5
+
+setchar "homingtype" "target"
+setchar "homingrange" 200
+setchar "homingspeed" 12
+setchar "homingdamage" 25
+setchar "homingenergy" 25
+setchar "homingknockback" 15
+setchar "homingstun" 1.5
+
+# Hitboxes
+hitbox "idle" 0 0 32 48
+hitbox "walk" 0 0 32 48
+hitbox "run" 0 0 32 48
+hitbox "jump" 0 0 32 48
+hitbox "attack" 0 0 48 48
+hitbox "special" 0 0 64 48
+hitbox "spindash" 0 0 32 32
+hitbox "homing" 0 0 48 48
+hitbox "hurt" 0 0 32 48
+hitbox "death" 0 0 32 48
+
+# Sounds
+sound "jump" "sounds/jump.wav"
+sound "attack" "sounds/attack.wav"
+sound "special" "sounds/special.wav"
+sound "spindash" "sounds/spindash.wav"
+sound "homing" "sounds/homing.wav"
+sound "hurt" "sounds/hit.wav"
+sound "death" "sounds/death.wav"
+sound "combo" "sounds/combo.wav"
+
+# Special Move Inputs
+input "special" "D"
+input "spindash" "F"
+input "homing" "G"
+
+# Special Move Effects
+effect "special" {
+    type "projectile"
+    damage 20
+    speed 10
+    range 300
+    energy 20
+    cooldown 3
+    stun 1
+    knockback 10
+}
+
+effect "spindash" {
+    type "dash"
+    damage 15
+    speed 15
+    duration 1
+    energy 15
+    cooldown 2
+    stun 0.5
+    knockback 8
+}
+
+effect "homing" {
+    type "target"
+    damage 25
+    speed 12
+    range 200
+    energy 25
+    cooldown 4
+    stun 1.5
+    knockback 15
+} 

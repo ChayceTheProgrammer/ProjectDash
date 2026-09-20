@@ -1,0 +1,109 @@
+# Sonic Battle Sprite Sheet Configuration
+
+# Basic Movement Animations
+animation "idle" {
+    frames 4
+    delay 0.2
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 32 48
+    frame 1 32 0 32 48
+    frame 2 64 0 32 48
+    frame 3 96 0 32 48
+}
+
+animation "walk" {
+    frames 6
+    delay 0.1
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 48 32 48
+    frame 1 32 48 32 48
+    frame 2 64 48 32 48
+    frame 3 96 48 32 48
+    frame 4 128 48 32 48
+    frame 5 160 48 32 48
+}
+
+animation "run" {
+    frames 8
+    delay 0.05
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 96 32 48
+    frame 1 32 96 32 48
+    frame 2 64 96 32 48
+    frame 3 96 96 32 48
+    frame 4 128 96 32 48
+    frame 5 160 96 32 48
+    frame 6 192 96 32 48
+    frame 7 224 96 32 48
+}
+
+# Special Move Animations
+animation "spindash" {
+    frames 6
+    delay 0.05
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 144 32 32
+    frame 1 32 144 32 32
+    frame 2 64 144 32 32
+    frame 3 96 144 32 32
+    frame 4 128 144 32 32
+    frame 5 160 144 32 32
+}
+
+animation "homing" {
+    frames 6
+    delay 0.1
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 176 48 48
+    frame 1 48 176 48 48
+    frame 2 96 176 48 48
+    frame 3 144 176 48 48
+    frame 4 192 176 48 48
+    frame 5 240 176 48 48
+}
+
+animation "special" {
+    frames 8
+    delay 0.05
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 224 64 48
+    frame 1 64 224 64 48
+    frame 2 128 224 64 48
+    frame 3 192 224 64 48
+    frame 4 0 272 64 48
+    frame 5 64 272 64 48
+    frame 6 128 272 64 48
+    frame 7 192 272 64 48
+}
+
+# Attack Animations
+animation "attack" {
+    frames 6
+    delay 0.1
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 320 48 48
+    frame 1 48 320 48 48
+    frame 2 96 320 48 48
+    frame 3 144 320 48 48
+    frame 4 192 320 48 48
+    frame 5 240 320 48 48
+}
+
+# State Animations
+animation "hurt" {
+    frames 2
+    delay 0.2
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 368 32 48
+    frame 1 32 368 32 48
+}
+
+animation "death" {
+    frames 4
+    delay 0.3
+    sheet "sprites/Game Boy Advance - Sonic Battle - Sonic.png"
+    frame 0 0 416 32 48
+    frame 1 32 416 32 48
+    frame 2 64 416 32 48
+    frame 3 96 416 32 48
+} 

@@ -1,0 +1,36 @@
+# Level 1 Settings
+name "Green Hill Zone"
+author "Your Name"
+version "1.0"
+
+# Level Properties
+setlevel "name" "Green Hill Zone"
+setlevel "author" "Your Name"
+setlevel "version" "1.0"
+setlevel "type" "beat"
+setlevel "music" "level1.mp3"
+setlevel "background" "sprites/background.png"
+setlevel "foreground" "sprites/foreground.png"
+setlevel "width" 1000
+setlevel "height" 400
+setlevel "gravity" 0.5
+setlevel "scrollspeed" 2
+
+# Player Start Position
+setlevel "playerstartx" 100
+setlevel "playerstarty" 300
+
+# Enemy Spawn Points
+spawn "enemy1" 500 300
+spawn "enemy2" 700 300
+spawn "enemy3" 900 300
+
+# Level Boundaries
+setlevel "leftboundary" 0
+setlevel "rightboundary" 1000
+setlevel "topboundary" 0
+setlevel "bottomboundary" 400
+
+# Level Completion
+setlevel "completion" "defeatall"
+setlevel "nextlevel" "level2" 

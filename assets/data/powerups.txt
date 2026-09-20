@@ -1,0 +1,65 @@
+# Power-up System Definition
+
+# Ring Power-up
+item "ring"
+type "collectible"
+value 10
+score 100
+animation "sprites/ring.png" 4 0.1
+sound "sounds/ring.wav"
+effect "score" 100
+effect "energy" 10
+
+# Shield Power-up
+item "shield"
+type "powerup"
+duration 30
+animation "sprites/shield.png" 4 0.1
+sound "sounds/shield.wav"
+effect "defense" 2
+effect "invincible" 1
+
+# Speed Shoes
+item "speedshoes"
+type "powerup"
+duration 15
+animation "sprites/speedshoes.png" 4 0.1
+sound "sounds/speedshoes.wav"
+effect "speed" 2
+effect "jumpspeed" 2
+
+# Invincibility
+item "invincibility"
+type "powerup"
+duration 10
+animation "sprites/invincibility.png" 8 0.05
+sound "sounds/invincibility.wav"
+effect "invincible" 1
+effect "speed" 1.5
+
+# Extra Life
+item "extralife"
+type "collectible"
+value 1
+animation "sprites/extralife.png" 4 0.1
+sound "sounds/extralife.wav"
+effect "lives" 1
+
+# Energy Capsule
+item "energycapsule"
+type "collectible"
+value 50
+animation "sprites/energycapsule.png" 4 0.1
+sound "sounds/energycapsule.wav"
+effect "energy" 50
+
+# Power-up Spawn Properties
+setitem "spawnrate" 0.1
+setitem "maxspawns" 5
+setitem "spawntime" 30
+setitem "spawnchance" 0.3
+
+# Power-up Effects
+setitem "effectduration" 10
+setitem "effectstack" 1
+setitem "effectmax" 3 

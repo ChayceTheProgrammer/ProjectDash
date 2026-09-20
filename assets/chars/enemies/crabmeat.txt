@@ -1,0 +1,62 @@
+# Crabmeat Enemy Definition
+name "Crabmeat"
+type "enemy"
+health 30
+speed 2
+jumpspeed 0
+gravity 0.5
+attackpower 5
+defense 2
+score 100
+
+# Basic Properties
+setchar "name" "Crabmeat"
+setchar "type" "enemy"
+setchar "health" 30
+setchar "speed" 2
+setchar "jumpspeed" 0
+setchar "gravity" 0.5
+setchar "attackpower" 5
+setchar "defense" 2
+setchar "score" 100
+
+# AI Behavior
+setchar "aitype" "patrol"
+setchar "aipatrol" 1
+setchar "aipatrolrange" 200
+setchar "aipatrolspeed" 2
+setchar "aipatrolpause" 1
+setchar "aipatrolpausechance" 0.3
+
+# Animations
+animation "idle" "sprites/crabmeat_idle.png" 2 0.2
+animation "walk" "sprites/crabmeat_walk.png" 4 0.15
+animation "attack" "sprites/crabmeat_attack.png" 4 0.1
+animation "hurt" "sprites/crabmeat_hurt.png" 2 0.2
+animation "death" "sprites/crabmeat_death.png" 4 0.2
+
+# Basic Moves
+move "walk" "walk" 0 0
+move "attack" "attack" 0 0
+move "hurt" "hurt" 0 0
+move "death" "death" 0 0
+
+# Hitboxes
+hitbox "idle" 0 0 32 32
+hitbox "walk" 0 0 32 32
+hitbox "attack" 0 0 48 32
+hitbox "hurt" 0 0 32 32
+hitbox "death" 0 0 32 32
+
+# Attack Properties
+setchar "attacktype" "projectile"
+setchar "attackrange" 150
+setchar "attackcooldown" 2
+setchar "projectile" "crabmeat_shot"
+setchar "projectilespeed" 5
+setchar "projectiledamage" 5
+
+# Sounds
+sound "attack" "sounds/crabmeat_attack.wav"
+sound "hurt" "sounds/crabmeat_hurt.wav"
+sound "death" "sounds/crabmeat_death.wav" 
