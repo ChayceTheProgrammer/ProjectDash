@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CMake: configure",
+            "label": "ProjectDash: Configure",
             "type": "shell",
             "command": "cmake",
             "args": [
@@ -22,10 +22,14 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": "build"
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
         },
         {
-            "label": "CMake: build",
+            "label": "ProjectDash: Build",
             "type": "shell",
             "command": "cmake",
             "args": [
@@ -38,14 +42,18 @@
                     "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
                 }
             },
-            "dependsOn": "CMake: configure",
+            "dependsOn": "ProjectDash: Configure",
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": "build"
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
         },
         {
-            "label": "CMake: build and run",
+            "label": "ProjectDash: Build and Run",
             "type": "shell",
             "command": "${workspaceFolder}/build/ProjectDash.exe",
             "options": {
@@ -54,9 +62,13 @@
                     "PATH": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;${env:PATH}"
                 }
             },
-            "dependsOn": "CMake: build",
+            "dependsOn": "ProjectDash: Build",
             "dependsOrder": "sequence",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
         }
     ]
 }
