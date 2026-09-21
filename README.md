@@ -72,16 +72,26 @@ Environment:
 
 VS Code Build and Run
 ---------------------
-Install the CMake Tools and C/C++ extensions, then open the repository root in
-VS Code. The included `.vscode` configuration uses the MSYS2 UCRT64 MinGW
-toolchain and the SFML package installed with:
+1. Install the **CMake Tools** and **C/C++** extensions. VS Code will also
+   suggest them when this project is opened.
+2. Install the compiler and SFML once from an MSYS2 UCRT64 terminal:
 
     C:\msys64\usr\bin\pacman.exe -S --needed mingw-w64-ucrt-x86_64-sfml
 
-Use `Terminal > Run Task > CMake: build and run` for a quick test cycle. Use
-the `ProjectDash` launch configuration to build and start the game under the
-debugger with F5. The working directory is set to the repository root so
-relative asset paths continue to work.
+3. In VS Code, select `File > Open Folder...` and choose the folder containing
+   `CMakeLists.txt`, `main.cpp`, `assets`, and `.vscode`. Do not open only
+   `src` or `include`.
+4. For a quick test cycle, press `Ctrl+Shift+P`, choose `Tasks: Run Task`, and
+   select `ProjectDash: Build and Run`. The first run configures CMake and
+   builds automatically.
+5. To debug, press `F5` and choose the `ProjectDash` configuration. It builds
+   before starting GDB.
+
+The working directory is set to the repository root so relative asset paths
+continue to work. If the task list is empty, reopen the folder from step 3
+and confirm that `.vscode/tasks.json` is present. If CMake cannot be found,
+restart VS Code after installing MSYS2 or add
+`C:\msys64\ucrt64\bin` and `C:\msys64\usr\bin` to the Windows PATH.
 
 Input Architecture System
 Movement (8-way):
