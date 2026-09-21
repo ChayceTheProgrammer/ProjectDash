@@ -1,10 +1,29 @@
 #include "../include/MainMenu.h"
 #include "../include/GameManager.h"
 
+namespace {
+bool loadMenuFont(sf::Font& font) {
+    const std::vector<std::string> candidatePaths = {
+        "assets/fonts/pixel_font.ttf",
+        "C:/Windows/Fonts/arial.ttf",
+        "C:/Windows/Fonts/segoeui.ttf",
+        "C:/Windows/Fonts/consola.ttf"
+    };
+
+    for (const auto& path : candidatePaths) {
+        if (font.loadFromFile(path)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+}
+
 MainMenu::MainMenu() : selectedOption(0) {
 	// Initialize menu text and options
     // Load font
-    if (!font.loadFromFile("assets/fonts/pixel_font.ttf")) {
+    if (!loadMenuFont(font)) {
         throw std::runtime_error("Failed to load font!");
     }
 

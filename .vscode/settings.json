@@ -1,0 +1,15 @@
+{
+    "cmake.generator": "MinGW Makefiles",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureSettings": {
+        "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe"
+    },
+    "cmake.environment": {
+        "PATH": "C:/msys64/ucrt64/bin;C:/msys64/usr/bin;${env:PATH}"
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.buildBeforeRun": true,
+    "files.associations": {
+        "*.h": "cpp"
+    }
+}

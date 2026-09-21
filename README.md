@@ -70,6 +70,19 @@ Environment:
 -create c++ file
 -get a window and go...
 
+VS Code Build and Run
+---------------------
+Install the CMake Tools and C/C++ extensions, then open the repository root in
+VS Code. The included `.vscode` configuration uses the MSYS2 UCRT64 MinGW
+toolchain and the SFML package installed with:
+
+    C:\msys64\usr\bin\pacman.exe -S --needed mingw-w64-ucrt-x86_64-sfml
+
+Use `Terminal > Run Task > CMake: build and run` for a quick test cycle. Use
+the `ProjectDash` launch configuration to build and start the game under the
+debugger with F5. The working directory is set to the repository root so
+relative asset paths continue to work.
+
 Input Architecture System
 Movement (8-way):
 - Up (8), Down (2), Left (4), Right (6)

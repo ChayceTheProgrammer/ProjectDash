@@ -1,5 +1,6 @@
 
 /.vs
+/build
 /Debug
 ProjectDash.sln
 ProjectDash.vcxproj
