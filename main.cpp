@@ -1,15 +1,16 @@
-#include "include/GameManager.h" 
+#include <iostream>
+#include <vector>
+#include <string>
 
-int main() {
-    try {
-        GameManager TheGame;
-        TheGame.run();
-	}
-	catch (const std::exception& e) {
-		std::cout << "nothing to report" << std::endl;
-		std::cerr << "An error occurred: " << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
+using namespace std;
 
-    return 0;
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
 }
